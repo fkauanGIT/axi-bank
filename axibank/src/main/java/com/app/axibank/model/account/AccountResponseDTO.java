@@ -14,4 +14,5 @@ public class AccountResponseDTO {
     private String agency;
     private BigDecimal balance;
     private Account.AccountType accountType;
+    private Long customerId;
 }

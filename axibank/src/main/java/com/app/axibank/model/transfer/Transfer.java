@@ -19,12 +19,12 @@ public class Transfer {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "account_source_id", nullable = false)
-    private Account accountSourceId;
+    @JoinColumn(name = "account_source_id", nullable = false, referencedColumnName = "id")
+    private Account accountSource;
 
     @ManyToOne
-    @JoinColumn(name = "account_destination_id", nullable = false)
-    private Account accountDestinationId;
+    @JoinColumn(name = "account_destination_id", nullable = false, referencedColumnName = "id")
+    private Account accountDestination;
 
     private BigDecimal value;
 
