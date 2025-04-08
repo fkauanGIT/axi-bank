@@ -13,7 +13,7 @@ public class CustomerService {
     private final CustomerRepository customerRepository;
 
     @Transactional
-    public Customer createCustomer(Customer customer) {
+    public Customer create(Customer customer) {
         return customerRepository.save(customer);
     }
 
