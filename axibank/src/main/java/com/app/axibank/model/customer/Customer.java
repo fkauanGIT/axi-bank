@@ -1,4 +1,4 @@
-package com.app.axibank.model;
+package com.app.axibank.model.customer;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

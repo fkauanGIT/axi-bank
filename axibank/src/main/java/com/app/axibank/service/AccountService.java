@@ -1,6 +1,6 @@
 package com.app.axibank.service;
 
-import com.app.axibank.model.Account;
+import com.app.axibank.model.account.Account;
 import com.app.axibank.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,6 @@
-package com.app.axibank.model;
+package com.app.axibank.model.transfer;
 
+import com.app.axibank.model.account.Account;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

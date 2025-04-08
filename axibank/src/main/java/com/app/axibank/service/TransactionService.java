@@ -1,6 +1,6 @@
 package com.app.axibank.service;
 
-import com.app.axibank.model.Transaction;
+import com.app.axibank.model.transaction.Transaction;
 import com.app.axibank.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
