@@ -14,5 +14,7 @@ public class CustomerResponseDTO {
     private String name;
     private String cpf;
     private String email;
+    private String password;
     private String telephone;
+    private Customer.CustomerType customerType;
 }

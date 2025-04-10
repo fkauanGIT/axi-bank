@@ -11,6 +11,7 @@ public class CustomerMapper {
         customer.setName(dto.getName());
         customer.setCpf(dto.getCpf());
         customer.setEmail(dto.getEmail());
+        customer.setPassword(dto.getPassword());
         customer.setTelephone(dto.getTelephone());
         return customer;
     }
@@ -21,7 +22,9 @@ public class CustomerMapper {
         dto.setName(customer.getName());
         dto.setCpf(customer.getCpf());
         dto.setEmail(customer.getEmail());
+        dto.setPassword(customer.getPassword());
         dto.setTelephone(customer.getTelephone());
+        dto.setCustomerType(customer.getCustomerType());
         return dto;
     }
 }

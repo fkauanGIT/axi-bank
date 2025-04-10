@@ -13,5 +13,6 @@ public class CustomerRequestDTO {
     private String name;
     private String cpf;
     private String email;
+    private String password;
     private String telephone;
 }

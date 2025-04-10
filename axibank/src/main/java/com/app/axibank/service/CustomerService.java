@@ -7,6 +7,7 @@ import com.app.axibank.model.customer.CustomerResponseDTO;
 import com.app.axibank.repository.CustomerRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,18 +17,12 @@ import java.util.Optional;
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public CustomerResponseDTO create(CustomerRequestDTO request) {
-        if (customerRepository.existsByCpf(request.getCpf())) {
-            throw new IllegalArgumentException("CPF já cadastrado.");
-        }
-
-        if (customerRepository.existsByEmail(request.getEmail())) {
-            throw new IllegalArgumentException("Email já cadastrado.");
-        }
-
+    public CustomerResponseDTO register(CustomerRequestDTO request) {
         Customer customer = CustomerMapper.toEntity(request);
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         Customer saved = customerRepository.save(customer);
         return CustomerMapper.toDTO(saved);
     }
@@ -47,6 +42,10 @@ public class CustomerService {
         customer.setCpf(request.getCpf());
         customer.setEmail(request.getEmail());
         customer.setTelephone(request.getTelephone());
+
+        if (request.getPassword() != null && !request.getPassword().isEmpty()) {
+            customer.setPassword(passwordEncoder.encode(request.getPassword()));
+        }
 
         Customer updated = customerRepository.save(customer);
         return CustomerMapper.toDTO(updated);
