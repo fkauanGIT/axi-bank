@@ -7,6 +7,8 @@ import com.project.axibank.model.LoginResponseDTO;
 import com.project.axibank.repository.CustomerRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -29,6 +31,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
+@Tag(name = "Usuário", description = "Registro, login e dados do usuário")
 public class UserController {
 
     private final CustomerRepository customerRepository;
@@ -36,6 +39,10 @@ public class UserController {
     private final AuthenticationManager authenticationManager;
     private final Environment env;
 
+    @Operation(
+            summary = "Registrar novo usuário",
+            description = "Cria uma conta de usuário com os dados fornecidos."
+    )
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody Customer customer) {
         try {
@@ -57,12 +64,20 @@ public class UserController {
         }
     }
 
+    @Operation(
+            summary = "Obter dados do usuário logado",
+            description = "Retorna as informações do usuário autenticado."
+    )
     @RequestMapping("/user")
     public Customer getUserDetailsAfterLogin(Authentication authentication) {
         Optional<Customer> optionalCustomer = customerRepository.findByEmail(authentication.getName());
         return optionalCustomer.orElse(null);
     }
 
+    @Operation(
+            summary = "Login do usuário",
+            description = "Autentica o usuário e retorna um token JWT para acesso à API."
+    )
     @PostMapping("/apiLogin")
     public ResponseEntity<LoginResponseDTO> apiLogin (@RequestBody LoginRequestDTO loginRequest) {
         String jwt = "";

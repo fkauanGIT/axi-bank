@@ -65,7 +65,7 @@ public class ProjectSecurityConfig {
                         .requestMatchers("/myLoans").authenticated()
                         .requestMatchers("/myCards").hasRole("USER")
                         .requestMatchers("/user").authenticated()
-                        .requestMatchers("/notices", "/contact", "/error", "/register", "/invalidSession", "/apiLogin").permitAll());
+                        .requestMatchers("/notices", "/contact", "/error", "/register", "/invalidSession", "/apiLogin", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll());
         http.formLogin(withDefaults());
         http.httpBasic(hbc -> hbc.authenticationEntryPoint(new CustomBasicAuthenticationEntryPoint()));
         http.exceptionHandling(ehc -> ehc.accessDeniedHandler(new CustomAccessDeniedHandler()));
