@@ -67,7 +67,7 @@ Se preferir rodar localmente sem Docker, basta seguir os passos abaixo:
 
 ### 4. Banco de Dados
 
-O projeto usa o **PostgreSQL** como banco de dados. Configure uma instância local ou utilize um banco de dados remoto para testar a aplicação.
+O projeto usa o **mySQL** como banco de dados. Configure uma instância local ou utilize um banco de dados remoto para testar a aplicação.
 
 ---
 
