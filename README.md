@@ -18,7 +18,7 @@
 - **Lombok**: Reduz o boilerplate code através de anotações.
 - **DevTools**: Ferramentas para facilitar o desenvolvimento e hot-reload.
 - **Docker**: Contêineres para garantir consistência no ambiente de desenvolvimento e deploy.
-- **SQL Driver**: Conexão com o banco de dados PostgreSQL.
+- **SQL Driver**: Conexão com o banco de dados mySQL.
 
 ---
 
@@ -91,7 +91,7 @@ O projeto usa o **mySQL** como banco de dados. Configure uma instância local ou
 
 - **Gerenciamento de Sessões**: Garantir que os tokens JWT fossem gerenciados corretamente e expirados sem comprometer a experiência do usuário.
 
-- **Integração com Banco de Dados**: Configurar corretamente os relacionamentos entre as entidades e garantir a persistência eficiente no **PostgreSQL** foi um desafio, mas que foi superado com a utilização de repositórios **Spring Data**.
+- **Integração com Banco de Dados**: Configurar corretamente os relacionamentos entre as entidades e garantir a persistência eficiente no **mySQL** foi um desafio, mas que foi superado com a utilização de repositórios **Spring Data**.
 
 ---
 
